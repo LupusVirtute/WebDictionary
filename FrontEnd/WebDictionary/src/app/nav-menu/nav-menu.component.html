@@ -1,0 +1,12 @@
+<div class='main-nav text-info'>
+    <h3>English-Polish Web Dictionary</h3>
+    <ol>
+        <a *ngFor='let element of navItems' routerLink='{{element.link}}' routerLinkActive="active">    
+            <li>
+                <i class="fas {{element.className}}"></i>
+                {{element.desc}}
+            </li>
+        </a>
+    </ol>
+
+</div>

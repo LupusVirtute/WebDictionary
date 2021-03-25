@@ -1,0 +1,40 @@
+.main-nav {
+    ol {
+        padding:0;
+        font-size: 20px;
+        list-style-type: none;
+        color:var(--bs-primary);
+        li {
+            cursor: pointer;
+            padding: 20px 40px;
+        }
+        a {
+            li:hover {
+                background: #3d4044;
+                color: #0a58ca;
+            }
+        }
+        a:first-child {
+            li {
+                border-radius: 0 30px 0px 0;
+            }
+        }
+        a:last-child {
+            li{
+                border-radius: 0 0px 30px 0;
+            }
+        }
+        background: #31363b;
+        border-radius: 0 30px 30px 0;
+    }
+    margin:0;
+    padding:30px;
+    max-width: 300px;
+    height:calc(100% - 60px);
+    margin-right:30px;
+    background: var(--bs-gray-dark);
+    box-sizing: content-box;
+}
+a {
+    text-decoration:none;
+}

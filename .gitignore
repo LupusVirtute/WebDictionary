@@ -1,0 +1,6 @@
+.vs/*
+.dll
+*/obj/*
+*/.vscode/*
+*/bin/*
+

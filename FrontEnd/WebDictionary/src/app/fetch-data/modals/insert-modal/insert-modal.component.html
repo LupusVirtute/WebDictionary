@@ -1,0 +1,14 @@
+<div mat-dialog-content>
+    <p>Wpisz dane do kreacji nowego wpisu</p>
+    <mat-form-field class="field">
+        <mat-label>Polskie słowo</mat-label>
+        <input matInput type="text" [(ngModel)]='polishWord'>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+        <mat-label>Angielskie słowo</mat-label>
+        <input matInput type="text" [(ngModel)]='englishWord'>
+    </mat-form-field>
+    <button class="btn btn-primary" (click)="onAccept()">Akceptuj</button>
+    <button class="btn btn-danger" (click)="cancel()">Anuluj</button>
+</div>

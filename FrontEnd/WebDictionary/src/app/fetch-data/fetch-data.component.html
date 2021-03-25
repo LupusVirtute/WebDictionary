@@ -1,0 +1,52 @@
+<h1>Słowa</h1>
+
+<p>Lista wszystkich słów</p>
+
+<p *ngIf="!dataSource"><em>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border spinner-size" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+</em></p>
+
+<button class="btn btn-primary" (click)="addNewElement()">Dodaj nowe słowo</button>
+<table #table mat-table [dataSource]="dataSource" class="table" *ngIf='dataSource' matSort >
+  <ng-container matColumnDef="{{col}}" *ngFor="let col of displayedColumns">
+    
+    <th mat-header-cell *matHeaderCellDef  mat-sort-header class="bg-secondary">
+      <h6 class="text-info">
+        {{translatedColumns[col]}}
+      </h6>
+    </th>
+    <td mat-cell *matCellDef="let element" class="bg-white table-cell">
+      <div *ngIf="!element.isEdit">
+        <div class="btn-edit" *ngIf="col === '$$edit'" >
+          <button (click)="swapEdition(element)" class="btn btn-outline-primary text-info">Edytuj</button>
+          <button (click)="deleteElement(element)" class="btn btn-outline-primary text-info">Usuń</button>
+
+        </div>
+        
+        <span #spanHeader class="text-secondary">
+          {{element[col]}}
+        </span>
+      </div>
+      <div *ngIf="element.isEdit">
+        <div class="btn-edit" *ngIf="col === '$$edit'; else defaultField">
+          <button (click)="swapEdition(element)" class="btn btn-outline-primary text-info">Koniec edycji</button>
+        </div>
+
+
+        <ng-template #defaultField>
+          <mat-form-field>
+            <mat-label>{{translatedColumns[col]}}</mat-label>
+            <input type="{{dataSchema[col]}}" matInput value="{{element[col]}}" [ngModel]='element[col]' (ngModelChange)='valueChanged($event,element,col)'>
+          </mat-form-field>
+        </ng-template>
+
+      </div>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns" class="text-primary"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+</table>

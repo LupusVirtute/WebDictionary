@@ -1,0 +1,24 @@
+<mat-form-field>
+    <mat-label>Wpisz słowo które chcesz przetłumaczyć</mat-label>
+    <input matInput type="text" [ngModel]="wordToCheck" (ngModelChange)='getResult($event)'>
+</mat-form-field>
+
+<p>Wyniki:</p>
+
+<table #table mat-table [dataSource]="result" class="table" *ngIf='wordToCheck'>
+    <ng-container matColumnDef="{{col}}" *ngFor="let col of displayedColumns">
+      
+      <th mat-header-cell *matHeaderCellDef  class="bg-secondary">
+        <h6 class="text-info">
+          {{translatedColumns[col]}}
+        </h6>
+      </th>
+      <td mat-cell *matCellDef="let element" class="bg-white table-cell">
+          <span #spanHeader class="text-secondary">
+            {{element[col]}}
+          </span>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="text-primary"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+  </table>

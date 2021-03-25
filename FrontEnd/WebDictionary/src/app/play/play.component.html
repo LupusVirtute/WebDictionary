@@ -1,0 +1,24 @@
+<span>Angielskie Słowo: <span class="text-info">{{testedWord.englishWord}}</span></span>
+<br/>
+<mat-form-field>
+    <mat-label class="text-success">Twoja odpowiedź</mat-label>
+    <input matInput type="text" class="text-warning" [(ngModel)]='answer'>
+</mat-form-field>
+<br/>
+<button class="btn btn-outline-primary" (click)="getNext()">Weryfikuj</button>
+<br/>
+<br/>
+<div *ngIf="correctWord.uid">
+    <span>Ostatni wynik: </span><br/>
+    <span>Słowo Angielskie: <p class="text-info">{{correctWord.englishWord}}</p></span>
+    <span>Twoja odpowiedź: <p class="text-info">{{lastAnswer}}</p></span>
+    <span class="flex-inline">Poprawna odpowiedź:
+        <p *ngIf='checkIfCorrect()' class='text-success'>
+            {{correctWord.polishWord}}
+        </p>
+        <p *ngIf='!checkIfCorrect()' class='text-danger'>
+            {{correctWord.polishWord}}
+        </p>
+        
+    </span>
+</div>

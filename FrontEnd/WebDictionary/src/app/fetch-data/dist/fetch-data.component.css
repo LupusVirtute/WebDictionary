@@ -1,0 +1,21 @@
+.btn-edit .btn {
+  margin-left: 5px;
+}
+
+.table-cell {
+  padding: 10px;
+  border: 1px solid;
+}
+
+.table {
+  margin-top: 10px;
+  border: none;
+  padding: 0;
+}
+
+th {
+  border-right: 1px solid;
+}
+th h6 {
+  padding: 10px;
+}
